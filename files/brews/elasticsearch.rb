@@ -55,7 +55,7 @@ class Elasticsearch < Formula
       s.gsub! /#network\.host\: [^\n]+/, "network.host: 127.0.0.1"
 
       # 4. Enable dynamic scripts
-      s.sub! "  disable_dynamic: true", "  disable_dynamic: false"
+      s.sub! "#http.jsonp.enable: true", "script.disable_dynamic: false"
     end
 
     inreplace "#{bin}/elasticsearch.in.sh" do |s|
